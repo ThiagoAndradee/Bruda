@@ -3,6 +3,10 @@ import coverlogo from '../../assets/coverlogo.png';
 
 export default function CTA() {
 
+  const redirectToLogin = () => {
+    navigate('/login');
+  };
+
 
      //<canvas id='canvas3d' className='absolute top-0 left-0 w-full h-screen z-1'></canvas>
   
@@ -57,7 +61,7 @@ export default function CTA() {
             </p>
             <div className="mt-10 flex items-center gap-x-6">
               <a
-                href="#"
+                href="#" onClick={redirectToLogin}
                 className="rounded-md bg-cyan-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
               >
                 Join the Community
