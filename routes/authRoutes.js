@@ -64,6 +64,10 @@ router.post('/add-user', (req, res) => {
 });
 
 
+router.get('/hello', async (req, res, next) => {
+  res.send('Hello Thiago')
+});
+
 
 router.get('/auth/linkedin/callback', async (req, res, next) => {
   console.log('query', req.query)
