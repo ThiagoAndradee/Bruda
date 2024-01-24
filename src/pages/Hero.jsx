@@ -12,7 +12,7 @@ const handleLoginBackup = async () => {
   
       if (response.ok) {
         // Redirecionar para o login do LinkedIn se a pré-autenticação for bem-sucedida
-        window.location.href = `${process.env.REDIRECT_URL}/auth/linkedin`;
+        window.location.href = `${import.meta.env.VITE_REDIRECT_URL}/auth/linkedin`;
       } else {
         console.error('Failed to initiate login process');
       }
@@ -65,10 +65,10 @@ export default function Hero() {
           if (response.ok) {
             const data = await response.json();
             const state = data.state; // Extract state from response
-      
+            console.log('ÓIA AQUI O REDIRECT URL RAPAIZ',import.meta.env.VITE_REDIRECT_URL)
             console.log('Pre-login successful, redirecting to LinkedIn login...');
             // Append the state parameter to the LinkedIn auth URL
-            window.location.href = `${process.env.REDIRECT_URL}/auth/linkedin?state=${state}`;
+            window.location.href = `${import.meta.env.VITE_REDIRECT_URL}/auth/linkedin?state=${state}`;
           } else {
             const text = await response.text();
             console.error('Failed to initiate login process:', text);
