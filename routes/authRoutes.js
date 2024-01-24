@@ -136,7 +136,7 @@ router.get('/linkedin/callback', async (req, res, next) => {
               res.status(500).send("Failed to save or update user data");
             } else {
               console.log(`User added/updated with id: ${userInfo.sub}`);
-              res.redirect('http://localhost:5173/workshops');
+              res.redirect(`${process.env.REDIRECT_URL}/workshops`);
             }
           }
         );
