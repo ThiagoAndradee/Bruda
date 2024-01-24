@@ -12,7 +12,7 @@ const handleLoginBackup = async () => {
   
       if (response.ok) {
         // Redirecionar para o login do LinkedIn se a pré-autenticação for bem-sucedida
-        window.location.href = 'https://productbrew-backend.vercel.app/auth/linkedin';
+        window.location.href = `${process.env.REDIRECT_URL}/auth/linkedin`;
       } else {
         console.error('Failed to initiate login process');
       }
@@ -68,7 +68,7 @@ export default function Hero() {
       
             console.log('Pre-login successful, redirecting to LinkedIn login...');
             // Append the state parameter to the LinkedIn auth URL
-            window.location.href = `https://productbrew-backend.vercel.app/auth/linkedin?state=${state}`;
+            window.location.href = `${process.env.REDIRECT_URL}/auth/linkedin?state=${state}`;
           } else {
             const text = await response.text();
             console.error('Failed to initiate login process:', text);
