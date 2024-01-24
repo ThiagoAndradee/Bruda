@@ -1,11 +1,15 @@
 import passport from 'passport';
 import { Strategy as LinkedInStrategy } from 'passport-linkedin-oauth2';
 import fetch from 'node-fetch'; // Certifique-se de ter o 'node-fetch' instalado
+import { config } from 'dotenv';
+config(); // Isso substitui require('dotenv').config();
+
+console.log('ESSE É O PROCESS.ENV.ID:',process.env.CLIENT_ID)
 
 passport.use(new LinkedInStrategy({
-    clientID: '77vbfdkm5xovst',
-    clientSecret: 'gZzw0kQT4BVWUiW4',
-    callbackURL: "http://localhost:3000/auth/linkedin/callback",
+    clientID: process.env.CLIENT_ID,
+    clientSecret: process.env.CLIENT_SECRET,
+    callbackURL: process.env.CALLBACK_URL,
     scope: ['openid', 'profile', 'email'],
     state: true
   },

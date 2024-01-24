@@ -1,13 +1,15 @@
 // app.js na raiz do projeto
+
+import { config } from 'dotenv';
+config(); // Isso substitui require('dotenv').config();
+
 import express from 'express';
 import passport from 'passport';
 import session from 'express-session';
 import authRoutes from './routes/authRoutes.js';
-import { config } from 'dotenv';
 import cors from 'cors';
 import './config/passport-setup.js'; // Este arquivo também precisa usar a sintaxe de importação ES6.
 
-config(); // Isso substitui require('dotenv').config();
 
 const app = express();
 app.use(cors()); // Garantir que isto esteja antes das rotas

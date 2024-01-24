@@ -91,7 +91,7 @@ router.get('/linkedin/callback', async (req, res, next) => {
 
   // Continue with the authentication logic
   try {
-    const redirect_uri = "https://product-brew.vercel.app/auth/linkedin/callback";
+    const redirect_uri = process.env.CALLBACK_URL;
     const client_id = '77vbfdkm5xovst';
     const client_secret = 'gZzw0kQT4BVWUiW4';
 
