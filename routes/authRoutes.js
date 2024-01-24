@@ -92,8 +92,8 @@ router.get('/linkedin/callback', async (req, res, next) => {
   // Continue with the authentication logic
   try {
     const redirect_uri = process.env.CALLBACK_URL;
-    const client_id = '77vbfdkm5xovst';
-    const client_secret = 'gZzw0kQT4BVWUiW4';
+    const client_id = process.env.CLIENT_ID;
+    const client_secret = process.env.CLIENT_SECRET;
 
     // Access token retrieval
     const access_token_url = `https://www.linkedin.com/oauth/v2/accessToken?grant_type=authorization_code&code=${code}&redirect_uri=${redirect_uri}&client_id=${client_id}&client_secret=${client_secret}`;

@@ -4,7 +4,8 @@ import fetch from 'node-fetch'; // Certifique-se de ter o 'node-fetch' instalado
 import { config } from 'dotenv';
 config(); // Isso substitui require('dotenv').config();
 
-console.log('ESSE É O PROCESS.ENV.ID:',process.env.CLIENT_ID)
+console.log('ESSE É O PROCESS.ENV.ID:',process.env.CLIENT_ID);
+console.log('ESSE É O PRE LOGIN URL:',process.env.PRELOGIN_URL);
 
 passport.use(new LinkedInStrategy({
     clientID: process.env.CLIENT_ID,

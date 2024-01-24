@@ -44,8 +44,13 @@ export default function Hero() {
       const handleLogin = async () => {
         try {
           console.log('Attempting to send pre-login with workshop choice:', selectedWorkshop.name);
+
+          const prelogin_url = import.meta.env.VITE_PRELOGIN_URL;
+
+          console.log('prelogin', prelogin_url)
+          console.log('all the vars', import.meta.env)
       
-          const response = await fetch('http://localhost:3000/auth/pre-login', {
+          const response = await fetch(prelogin_url, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

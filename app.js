@@ -1,5 +1,7 @@
 // app.js na raiz do projeto
 
+
+
 import { config } from 'dotenv';
 config(); // Isso substitui require('dotenv').config();
 
@@ -14,6 +16,11 @@ import './config/passport-setup.js'; // Este arquivo também precisa usar a sint
 const app = express();
 app.use(cors()); // Garantir que isto esteja antes das rotas
 app.use(express.json());
+
+
+app.listen(3001, function() {
+  console.log('Server is running on port 3001');
+});
 
 
 app.use(session({
