@@ -12,7 +12,7 @@ const AdminPage = () => {
   const [people, setPeople] = useState([]);
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_PROXY_AUTH}auth/users`)
+    fetch(`${import.meta.env.VITE_PROXY_AUTH}/auth/users`)
       .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
