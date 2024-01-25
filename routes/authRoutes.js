@@ -236,6 +236,9 @@ router.post('/pre-login', (req, res) => {
   res.json({ state });
 });
 
+router.get('/test', (req, res) => {
+  res.status(200).send('MARAVIULHA')
+});
 
 router.get('/linkedin', (req, res, next) => {
   // Se o parâmetro 'state' estiver presente na query, estamos na fase de callback
