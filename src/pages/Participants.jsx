@@ -3,7 +3,8 @@ const Participants = () => {
   const [people, setPeople] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/auth/users')
+    
+    fetch(`${import.meta.env.VITE_PROXY_AUTH}/auth/users/`)
       .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -30,7 +31,8 @@ const Participants = () => {
   };
   
   const handleDelete = (userId) => {
-    fetch(`http://localhost:3000/auth/users/${userId}`, {
+    
+    fetch(`${import.meta.env.VITE_PROXY_AUTH}/auth/users/${userId}`, {
       method: 'DELETE',
     })
     .then(() => {
@@ -50,7 +52,7 @@ const Participants = () => {
   };
 
   const handleClearAll = () => {
-    fetch('http://localhost:3000/auth/delete-all-users', { method: 'DELETE' })
+    fetch(`${import.meta.env.VITE_PROXY_AUTH}/auth/delete-all-users`, { method: 'DELETE' })
       .then(response => response.text())
       .then(data => {
         console.log(data);
@@ -77,8 +79,8 @@ const Participants = () => {
       workshopChoice: newWorkshop,
       profileUrl: newProfileUrl,
     };
-  
-    fetch('http://localhost:3000/auth/add-user', { // Use the correct URL for your server
+    
+    fetch(`${import.meta.env.VITE_PROXY_AUTH}/auth/add-user`, { // Use the correct URL for your server
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

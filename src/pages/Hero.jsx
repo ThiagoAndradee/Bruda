@@ -1,6 +1,6 @@
 const handleLoginBackup = async () => {
     try {
-      const response = await fetch('http://localhost:3000/auth/pre-login', {
+      const response = await fetch(`${import.meta.env.VITE_PROXY_AUTH}/auth/pre-login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
